@@ -1,0 +1,475 @@
+/* VARIABLES DE MARCA */
+:root {
+    --verde-principal: #1a7f37;
+    --verde-oscuro: #115e29;
+    --rojo-acento: #d32f2f;
+    --gris-fondo: #f4f7f6;
+    --blanco: #ffffff;
+    --negro-texto: #2d3436;
+}
+
+/* RESET GENERAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: var(--gris-fondo);
+    color: var(--negro-texto);
+    line-height: 1.6;
+}
+
+/* Reemplaza la sección HEADER con esto */
+header {
+    background: var(--verde-principal);
+    color: white;
+    padding: 50px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Agregamos una franja roja decorativa inclinada */
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -10%;
+    width: 30%;
+    height: 100%;
+    background: var(--rojo-acento);
+    transform: skewX(-20deg);
+    opacity: 0.8;
+    z-index: 0;
+}
+
+.header-container {
+    position: relative;
+    z-index: 1; /* Para que el texto quede sobre la franja roja */
+}
+
+.header-text h1 {
+    font-size: 3.2rem;
+    text-shadow: 2px 2px 0px var(--verde-oscuro);
+}
+
+.header-text p {
+    background: rgba(0,0,0,0.2);
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 5px;
+}
+
+/* SECCIÓN QUIÉNES SOMOS */
+.quienes-somos {
+    padding: 80px 20px;
+    background-color: var(--blanco);
+    text-align: center;
+}
+
+.container-small {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.quienes-somos h2 {
+    color: var(--verde-principal);
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.quienes-somos h2::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: var(--rojo-acento);
+    margin: 10px auto 0;
+}
+
+.resumen {
+    font-size: 1.15rem;
+    color: #444;
+    margin-bottom: 50px;
+}
+
+.mision-vision {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.mision-vision .item {
+    background: var(--gris-fondo);
+    padding: 35px;
+    border-radius: 12px;
+    border-top: 4px solid var(--verde-principal);
+    text-align: left;
+    transition: 0.3s;
+}
+
+.mision-vision .item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.bullet-rojo {
+    display: block;
+    width: 15px;
+    height: 15px;
+    background-color: var(--rojo-acento);
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.mision-vision h3 {
+    font-size: 1.5rem;
+    color: var(--verde-principal);
+    margin-bottom: 10px;
+}
+/* SECCIÓN LANZAMIENTOS */
+.lanzamientos {
+    padding: 5x 0;
+    background-color: var(--gris-fondo);
+}
+
+.titulo-seccion {
+    text-align: center;
+    color: var(--verde-principal);
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+
+.carrusel-wrapper {
+    position: relative;
+    padding: 20px 0;
+}
+
+.carrusel {
+    display: flex;
+    overflow-x: auto;
+    gap: 25px;
+    padding: 20px 10px;
+    scroll-snap-type: x mandatory; /* Hace que los items "encajen" al deslizar */
+    scrollbar-width: none; /* Oculta scrollbar en Firefox */
+}
+
+.carrusel::-webkit-scrollbar {
+    display: none; /* Oculta scrollbar en Chrome/Safari */
+}
+
+.item-lanzamiento {
+    flex: 0 0 300px; /* Tamaño fijo de cada zapato */
+    background: var(--blanco);
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    scroll-snap-align: center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    transition: 0.3s;
+}
+
+.item-lanzamiento:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(26, 127, 55, 0.15);
+}
+
+.item-lanzamiento img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+/* Etiqueta "Nuevo" */
+.tag-nuevo {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: var(--rojo-acento);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    z-index: 2;
+}
+
+.item-info {
+    padding: 20px;
+    text-align: center;
+}
+
+.item-info h4 {
+    color: var(--negro-texto);
+    margin-bottom: 5px;
+}
+
+.item-info p {
+    color: #888;
+    font-size: 0.9rem;
+}
+
+/* Ajuste móvil */
+@media (max-width: 600px) {
+    .item-lanzamiento {
+        flex: 0 0 80%; /* En móviles se ve casi toda la tarjeta */
+    }
+}
+
+/* SECCIÓN CATÁLOGOS */
+.container {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.grid-catalogos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+}
+
+.card {
+    background: var(--blanco);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(26, 127, 55, 0.2);
+}
+
+.card-image {
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s ease;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(17, 94, 41, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: 0.3s ease;
+}
+
+.overlay span {
+    color: var(--blanco);
+    font-weight: bold;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    border: 2px solid var(--rojo-acento);
+    padding: 10px 20px;
+}
+
+.card:hover .overlay { opacity: 1; }
+.card:hover img { transform: scale(1.1); }
+.card-footer { padding: 20px; text-align: center; }
+
+/* SECCIÓN MARCAS */
+/* SECCIÓN MARCAS */
+.marcas {
+    padding: 60px 0;
+    background: var(--blanco);
+    border-top: 1px solid #eee;
+}
+
+.marcas h3 {
+    text-align: center;
+    color: var(--verde-principal);
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    font-size: 1.8rem;
+    font-weight: 800;
+}
+
+.marcas-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 50px; /* Espacio entre logos */
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.marca-item img {
+    max-width: 100px; /* Tamaño uniforme para los logos */
+    height: auto;
+    filter: grayscale(100%); /* Efecto elegante en blanco y negro */
+    transition: 0.4s ease;
+    opacity: 0.5;
+}
+
+.marca-item img:hover {
+    filter: grayscale(0%); /* Recupera su color original al pasar el mouse */
+    opacity: 1;
+    transform: scale(1.1); /* Crece un poquito */
+}
+
+/* Ajuste para celulares */
+@media (max-width: 600px) {
+    .marcas-grid {
+        gap: 30px;
+    }
+    .marca-item img {
+        max-width: 80px;
+    }
+}
+
+/* SECCIÓN UBICACIÓN Y MAPA */
+.ubicacion {
+    padding: 80px 0;
+    background: var(--gris-fondo);
+}
+
+.ubicacion h2 {
+    text-align: center;
+    color: var(--verde-principal);
+    margin-bottom: 40px;
+    text-transform: uppercase;
+}
+
+.map-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 30px;
+}
+
+.info-card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    border-left: 8px solid var(--verde-principal);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.info-card h3 {
+    color: var(--verde-principal);
+    margin-bottom: 15px;
+}
+
+.dot-verde {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background: var(--verde-principal);
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.map-container {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* FOOTER */
+footer {
+    background: #222;
+    color: #aaa;
+    text-align: center;
+    padding: 40px 20px;
+    border-top: 4px solid var(--rojo-acento);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .map-grid { grid-template-columns: 1fr; }
+    .mision-vision { grid-template-columns: 1fr; }
+    .header-text h1 { font-size: 2.2rem; }
+}
+/* ESTILOS DEL FOOTER Y REDES SOCIALES */
+footer {
+    background: #1a1a1a; /* Negro profundo para contraste */
+    color: #ffffff;
+    padding: 60px 20px 20px;
+    border-top: 5px solid var(--rojo-acento);
+    text-align: center;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.footer-info h3 {
+    color: var(--verde-principal);
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.footer-socials p {
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #ccc;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.social-icons a {
+    color: #ffffff;
+    font-size: 1.8rem;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+/* EFECTO HOVER: SE VUELVEN ROJOS AL PASAR EL MOUSE */
+.social-icons a:hover {
+    color: var(--rojo-acento);
+    transform: translateY(-5px) scale(1.1);
+}
+
+.footer-bottom {
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 1px solid #333;
+    font-size: 0.9rem;
+    color: #777;
+}
+
+.footer-bottom strong {
+    color: var(--verde-principal);
+}
+
+/* Ajuste móvil */
+@media (max-width: 600px) {
+    .social-icons {
+        gap: 20px;
+    }
+    .social-icons a {
+        font-size: 1.5rem;
+    }
+}
