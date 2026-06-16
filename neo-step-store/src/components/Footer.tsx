@@ -1,12 +1,12 @@
 import Link from "next/link";
 
 const NAV_LINKS = [
-  { name: "Deportivos", href: "#deportivos" },
-  { name: "Basketball", href: "#basketball" },
-  { name: "Fútbol", href: "#futbol" },
-  { name: "Catálogos", href: "#catalogos" },
-  { name: "Nosotros", href: "#nosotros" },
-  { name: "Ubicación", href: "#ubicacion" },
+  { name: "Deportivos", href: "/#deportivos" },
+  { name: "Basketball", href: "/#basketball" },
+  { name: "Fútbol", href: "/#futbol" },
+  { name: "Catálogos", href: "/#catalogos" },
+  { name: "Nosotros", href: "/#nosotros" },
+  { name: "Ubicación", href: "/#ubicacion" },
 ];
 
 export default function Footer() {
